@@ -4,3 +4,5 @@ tornado:
   strength: 3
   # lifetime is in updates, which are 2-per-second
   lifetime: 40
+  # intervals at which a tornado is spawned at a random player (in ticks (20/second))
+  randomdelay: 600

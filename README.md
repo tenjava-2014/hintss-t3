@@ -29,3 +29,6 @@ Usage
 1. Install plugin
 2. Do things with it
 3. Setup permissions (tornadoes.reload and tornadoes.spawn)
+4. Edit config to liking
+
+Note: due to the destructive nature of this plugin, I recommend it not be loaded on any map where there are any structures of importance whatsoever
