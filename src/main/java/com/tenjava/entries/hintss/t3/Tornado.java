@@ -54,7 +54,7 @@ public class Tornado extends BukkitRunnable {
     public void run() {
         lifeTime--;
 
-        // TODO - randomise angle
+        loc.setYaw(loc.getYaw() + (r.nextFloat() - 0.5F) * 20F);
 
         // move the tornado forward by an amount equal to speed
         loc.add(loc.getDirection().normalize().multiply(speed));
@@ -73,7 +73,7 @@ public class Tornado extends BukkitRunnable {
                         if (b.getType().isSolid()) {
                             FallingBlock fb = loc.getWorld().spawnFallingBlock(b.getLocation().add(0, 0.5,0), b.getType(), b.getData());
 
-                            fb.setVelocity(new Vector(r.nextDouble() - 0.5, 3, r.nextDouble() - 0.5).normalize().multiply(strength));
+                            fb.setVelocity(new Vector(r.nextDouble() - 0.5, 6, r.nextDouble() - 0.5).normalize().multiply(strength));
                         }
 
                         b.setType(Material.AIR);
