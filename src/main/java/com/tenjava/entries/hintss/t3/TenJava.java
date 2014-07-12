@@ -6,6 +6,8 @@ public class TenJava extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+
+        getCommand("tornado").setExecutor(new TornadoCommand(this));
         // TODO - this
     }
 }

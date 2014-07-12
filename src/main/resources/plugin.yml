@@ -1,3 +1,10 @@
 name: hintss-t3
 main: com.tenjava.entries.hintss.t3.TenJava
 version: '${project.version}'
+description: Tornado plugin
+
+commands:
+  tornado:
+    description: tornados command
+    usage: /tornado
+    aliases: [tornadoes]
