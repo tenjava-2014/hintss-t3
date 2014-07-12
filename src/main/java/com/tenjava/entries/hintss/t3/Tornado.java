@@ -47,8 +47,10 @@ public class Tornado extends BukkitRunnable {
 
         // TODO - randomise angle
 
+        // move the tornado forward by an amount equal to speed
         loc.add(loc.getDirection().normalize().multiply(speed));
 
+        // go through blocks near the highest block at where the tornado is, fling those
         for (int i = (int) -radius - 1; i < radius + 1; i++) {
             for (int j = (int) -radius - 1; j < radius + 1; j++) {
                 for (int h = 0; h < 5; h++) {
@@ -63,6 +65,7 @@ public class Tornado extends BukkitRunnable {
 
         // TODO - do shit
 
+        // kill tornado if it's supposed to die now
         if (lifeTime == 0) {
             this.cancel();
         }

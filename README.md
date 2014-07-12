@@ -28,3 +28,4 @@ Usage
 
 1. Install plugin
 2. Do things with it
+3. Setup permissions (tornadoes.reload and tornadoes.spawn)
