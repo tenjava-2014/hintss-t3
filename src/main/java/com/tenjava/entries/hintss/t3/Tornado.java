@@ -59,19 +59,21 @@ public class Tornado extends BukkitRunnable {
         // move the tornado forward by an amount equal to speed
         loc.add(loc.getDirection().normalize().multiply(speed));
 
+        loc = loc.getWorld().getHighestBlockAt(loc).getLocation();
+
         // go through blocks near the highest block at where the tornado is, fling those
         for (int i = (int) -radius - 1; i < radius + 1; i++) {
             for (int j = (int) -radius - 1; j < radius + 1; j++) {
                 for (int h = 0; h < 5; h++) {
-                    Location potentialLoc = loc.getWorld().getHighestBlockAt(loc.clone().add(i, -h, j)).getLocation();
+                    Location potentialLoc = loc.clone().add(i, -h, j);
 
                     if (potentialLoc.distanceSquared(loc) <= radiusSquared) {
                         Block b = potentialLoc.getBlock();
 
                         if (b.getType().isSolid()) {
-                            FallingBlock fb = loc.getWorld().spawnFallingBlock(b.getLocation(), b.getType(), b.getData());
+                            FallingBlock fb = loc.getWorld().spawnFallingBlock(b.getLocation().add(0, 0.5,0), b.getType(), b.getData());
 
-                            fb.setVelocity(new Vector(r.nextFloat(), 3, r.nextFloat()));
+                            fb.setVelocity(new Vector(r.nextDouble() - 0.5, 3, r.nextDouble() - 0.5).normalize().multiply(strength));
                         }
 
                         b.setType(Material.AIR);
@@ -79,8 +81,6 @@ public class Tornado extends BukkitRunnable {
                 }
             }
         }
-
-        // TODO - do shit
 
         // kill tornado if it's supposed to die now
         if (lifeTime == 0) {

@@ -1,6 +1,6 @@
 tornado:
   radius: 3
-  speed: 1
+  speed: 2
   strength: 3
   # lifetime is in updates, which are 2-per-second
-  lifetime: 400
+  lifetime: 40

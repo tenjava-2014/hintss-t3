@@ -21,6 +21,6 @@ public class TenJava extends JavaPlugin {
 
     public void makeTornado(Player p) {
         Random r = new Random();
-        makeTornado(p.getLocation().add(r.nextDouble() * 20 - 10, 0, r.nextDouble() * 20 - 10));
+        makeTornado(p.getLocation());
     }
 }
