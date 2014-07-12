@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 /**
  * Created by Henry on 7/12/2014.
@@ -27,8 +28,12 @@ public class TornadoCommand implements CommandExecutor {
                 }
             } else if (args.length == 1 && args[0].equalsIgnoreCase("spawn")) {
                 if (sender.hasPermission("tornadoes.spawn")) {
-                    // TODO - spawn tornado
-                    sender.sendMessage(ChatColor.GREEN + "Spawned a tornado near you!");
+                    if (sender instanceof Player) {
+                        plugin.makeTornado((Player) sender);
+                        sender.sendMessage(ChatColor.GREEN + "Spawned a tornado near you!");
+                    } else {
+                        sender.sendMessage(ChatColor.RED + "Console can't do that, you silly!");
+                    }
                 } else {
                     sender.sendMessage(ChatColor.RED + "You don't have permission to do that!");
                 }
